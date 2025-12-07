@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>受け取り手続きフォーム（ダミー）</title>
+<style>
+  body{
+    margin:0;
+    background:#0b2030;
+    font-family:"Noto Sans JP", sans-serif;
+    color:#fff;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+  }
+  .wrap{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.1);
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  }
+  h2{text-align:center; margin:0 0 10px 0;}
+  label{display:block;margin:14px 0 4px;font-size:15px;}
+  input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+  }
+  button{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    background:#ff5252;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:700;
+  }
+  .loading{
+    margin-top:20px;
+    padding:16px;
+    background:rgba(255,255,255,0.15);
+    border-radius:12px;
+    text-align:center;
+    display:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h2>受け取り手続きフォーム</h2>
+  <p style="text-align:center;font-size:13px;opacity:.8;margin-top:-4px;">
+    ※このフォームは教育用途であり、入力内容は送信されません。
+  </p>
+
+  <form id="fakeForm">
+    <label>名前</label>
+    <input required>
+
+    <label>メールアドレス</label>
+    <input type="email" required>
+
+    <label>電話番号</label>
+    <input type="tel" required>
+
+    <label>住所</label>
+    <input required>
+
+    <button type="submit">送信する</button>
+  </form>
+
+  <div class="loading" id="loadingBox">
+    手続き中です…  
+    <br>（※実際には何も送信されません）
+  </div>
+</div>
+
+<script>
+  document.getElementById("fakeForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    document.getElementById("loadingBox").style.display = "block";
+
+    // ローディング後、完了ページへ
+    setTimeout(()=>{
+      window.location.href = "https//novelstar354.github.io/complete";
+    }, 2600);
+  });
+</script>
+
+</body>
+</html>
